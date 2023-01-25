@@ -1,0 +1,6 @@
+
+-- brew services start postgresql@14 // start
+-- brew services stop postgresql@14 // stop
+
+-- psql postgres // start shell
+    -- \du list users

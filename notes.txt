@@ -4,3 +4,5 @@
 
 -- psql postgres // start shell
     -- \du list users
+
+-- if not configures, default user is the name of system user and password is none - database name: postgres

@@ -19,4 +19,8 @@ pool.on("error", (err, client) => {
   console.log(`Error, ${err}`);
 });
 
+pool.on("remove", () => {
+  console.log("client removed");
+});
+
 module.exports = pool;

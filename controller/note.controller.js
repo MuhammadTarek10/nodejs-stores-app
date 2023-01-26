@@ -1,5 +1,3 @@
-const generator = require("../utils/generator");
-
 exports.getAllNotes = async (req, res) => {
   res.send("Get All Notes");
 };

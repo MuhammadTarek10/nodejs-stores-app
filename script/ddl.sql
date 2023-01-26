@@ -1,0 +1,17 @@
+CREATE SCHEMA IF NOT EXISTS bms;
+
+CREATE TABLE IF NOT EXISTS bms.store (
+    id SERIAL UNIQUE PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    code VARCHAR(50) NOT NULL,
+    address VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS bms.book (
+    id SERIAL UNIQUE PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    store_id INTEGER NOT NULL,
+    CONSTRAINT fk_store_id FOREIGN KEY (store_id) REFERENCES bms.store(id)
+);

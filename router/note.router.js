@@ -1,6 +1,6 @@
 const express = require("express");
 const routes = require("../config/api/endpoints");
-const noteController = require("../controller/note_controller");
+const noteController = require("../controller/note.controller");
 const router = express.Router();
 
 router.get(routes.NotesCRUD.GET_ALL_NOTES, noteController.getAllNotes);

@@ -1,10 +1,7 @@
 const winston = require("winston");
 const dotenv = require("dotenv");
+const { dateFormat } = require("../utils/utils");
 dotenv.config();
-
-const dateFormat = () => {
-  return Date(Date.now().toLocaleString());
-};
 
 class LoggerService {
   constructor(route) {
@@ -12,8 +9,7 @@ class LoggerService {
     this.logger = winston.createLogger({
       level: "info",
       format: winston.format.printf(
-        (info) =>
-          `${dateFormat()} | ${info.level.toUpperCase()} | ${info.message}`
+        (info) => `${dateFormat()} ${info.level}: ${info.message}`
       ),
       transports: [
         new winston.transports.Console(),

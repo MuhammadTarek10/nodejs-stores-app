@@ -17,4 +17,6 @@ exports.queryList = {
   UPDATE_BOOK:
     "UPDATE bms.book SET title = $1, content = $2, pages = $3, author = $4, genre = $5, price = $6, store_id = $7 WHERE id = $8",
   DELETE_BOOK: "DELETE FROM bms.book WHERE id = $1",
+  AUDIT_EVENT:
+    "INSERT INTO bms.audit (action, data, status, user, time) VALUES ($1, $2, $3, $4, $5)",
 };

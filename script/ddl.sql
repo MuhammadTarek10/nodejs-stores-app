@@ -15,3 +15,12 @@ CREATE TABLE IF NOT EXISTS bms.book (
     store_id INTEGER NOT NULL,
     CONSTRAINT fk_store_id FOREIGN KEY (store_id) REFERENCES bms.store(id)
 );
+
+CREATE TABLE IF NOT EXISTS bms.audit (
+    id SERIAL UNIQUE PRIMARY KEY,
+    action VARCHAR(255) NOT NULL,
+    data VARCHAR(255) NOT NULL,
+    status VARCHAR(255) NOT NULL,
+    user VARCHAR(255) NOT NULL,
+    time TIMESTAMP NOT NULL
+);

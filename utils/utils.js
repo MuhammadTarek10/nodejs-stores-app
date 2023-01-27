@@ -7,3 +7,7 @@ exports.generateCode = () => {
     capitalization: "uppercase",
   });
 };
+
+exports.dateFormat = () => {
+  return Date(Date.now().toLocaleString());
+};

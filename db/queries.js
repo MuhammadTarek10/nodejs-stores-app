@@ -19,4 +19,8 @@ exports.queryList = {
   DELETE_BOOK: "DELETE FROM bms.book WHERE id = $1",
   AUDIT_EVENT:
     "INSERT INTO bms.audit (action, data, status, user, time) VALUES ($1, $2, $3, $4, $5)",
+  GET_USERS: "SELECT * FROM bms.users",
+  CREATE_USER:
+    "INSERT INTO bms.users (username, password, email, role, phone, userTypeCode) VALUES ($1, $2, $3, $4, $5, $6)",
+  GET_USER: "SELECT * FROM bms.users WHERE id = $1",
 };

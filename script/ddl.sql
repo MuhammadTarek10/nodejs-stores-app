@@ -24,3 +24,47 @@ CREATE TABLE IF NOT EXISTS bms.audit (
     user VARCHAR(255) NOT NULL,
     time TIMESTAMP NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS bms.user (
+    id SERIAL UNIQUE PRIMARY KEY,
+    username VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) UNIQUE NOT NULL,
+    role VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(255) NOT NULL,
+    active BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE IF NOT EXISTS bms.group (
+    id SERIAL UNIQUE PRIMARY KEY,
+    name VARCHAR(255) UNIQUE NOT NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS bms.role (
+    id SERIAL UNIQUE PRIMARY KEY,
+    name VARCHAR(255) UNIQUE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS bms.user_group (
+    id SERIAL UNIQUE PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    group_id INTEGER NOT NULL,
+    CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES bms.user(id),
+    CONSTRAINT fk_group_id FOREIGN KEY (group_id) REFERENCES bms.group(id)
+);
+
+CREATE TABLE IF NOT EXISTS bms.user_type (
+    id SERIAL UNIQUE PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    user_type_id INTEGER NOT NULL,
+    CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES bms.user(id)
+);
+
+CREATE TABLE IF NOT EXISTS bms.groupe_role (
+    id SERIAL UNIQUE PRIMARY KEY,
+    group_id INTEGER NOT NULL,
+    role_id INTEGER NOT NULL,
+    CONSTRAINT fk_group_id FOREIGN KEY (group_id) REFERENCES bms.group(id),
+    CONSTRAINT fk_role_id FOREIGN KEY (role_id) REFERENCES bms.role(id)
+);

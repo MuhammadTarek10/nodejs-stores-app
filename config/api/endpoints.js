@@ -28,6 +28,13 @@ module.exports = {
     UPDATE_BOOK: "/books/:id",
     DELETE_BOOK: "/books/:id",
   },
+  UserCRUD: {
+    GET_ALL_USERS: "/users",
+    CREATE_USER: "/users",
+    GET_USER: "/users/:id",
+    DELETE_USER: "/users/:id",
+    UPADTE_USER: "/users/:id",
+  },
   Swagger: {
     DOCS: "api-docs",
   },

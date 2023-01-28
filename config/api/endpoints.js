@@ -28,4 +28,7 @@ module.exports = {
     UPDATE_BOOK: "/books/:id",
     DELETE_BOOK: "/books/:id",
   },
+  Swagger: {
+    DOCS: "api-docs",
+  },
 };

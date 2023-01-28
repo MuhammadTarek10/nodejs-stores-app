@@ -3,7 +3,7 @@ const dbConnection = require("../db/connection");
 const { Book } = require("../models/book.model");
 const LoggerService = require("../service/logger.service");
 const AuditService = require("../service/audit.service");
-const auditActions = require("../audit/audit.action");
+const { auditAction } = require("../audit/audit.action");
 const utils = require("../utils/utils");
 
 const logger = new LoggerService("book.controller");
@@ -16,7 +16,7 @@ exports.getAllBooks = async (req, res) => {
     /*
     // MAKE SURE TO UNCOMMENT THIS CODE TO ENABLE AUDIT
     AuditService.prepareAudit(
-      auditActions.auditAction.GET_ALL_BOOKS,
+      auditActions.GET_ALL_BOOKS,
       books.rows,
       "Success",
       req.user,

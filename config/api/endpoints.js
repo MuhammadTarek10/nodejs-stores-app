@@ -33,7 +33,7 @@ module.exports = {
     CREATE_USER: "/users",
     GET_USER: "/users/:id",
     DELETE_USER: "/users/:id",
-    UPADTE_USER: "/users/:id",
+    UPDATE_USER: "/users/:id",
   },
   Swagger: {
     DOCS: "api-docs",
